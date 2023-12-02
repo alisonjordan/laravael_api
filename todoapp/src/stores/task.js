@@ -14,9 +14,11 @@ export const useTaskStore = defineStore("taskStore", () => {
   const uncompletedTasks = computed(() =>
     tasks.value.filter((task) => !task.is_completed)
   );
+  
   const completedTasks = computed(() =>
     tasks.value.filter((task) => task.is_completed)
   );
+
   const fetchAllTasks = async () => {
     const { data } = await allTasks();
     tasks.value = data.data;
@@ -26,6 +28,7 @@ export const useTaskStore = defineStore("taskStore", () => {
     const { data: createdTask } = await createTask(newTask);
     tasks.value.unshift(createdTask.data);
   };
+
   const handleUpdatedTask = async (task) => {
     const { data: updatedTask } = await updateTask(task.id, {
       name: task.name,
@@ -33,6 +36,7 @@ export const useTaskStore = defineStore("taskStore", () => {
     const currentTask = tasks.value.find((item) => item.id === task.id);
     currentTask.name = updatedTask.data.name;
   };
+
   const handleCompletedTask = async (task) => {
     const { data: updatedTask } = await isCompleteTask(task.id, {
       is_completed: task.is_completed,
@@ -40,6 +44,7 @@ export const useTaskStore = defineStore("taskStore", () => {
     const currentTask = tasks.value.find((item) => item.id === task.id);
     currentTask.is_completed = updatedTask.data.is_completed;
   };
+
   const handleRemovedTask = async (task) => {
     await removeTask(task.id);
     const index = tasks.value.findIndex((item) => item.id === task.id);
