@@ -10,4 +10,4 @@ export const updateTask = (id, task) => api.put(`${resources}/${id}` , task)
 
 export const removeTask = id => api.delete(`${resources}/${id}`)
 
-export const isCompleteTask = (id, task) => api.put(`${resources}/${id}/complete`, task)
+export const isCompleteTask = (id, task) =>   api.patch(`${resources}/${id}/complete`, task);
