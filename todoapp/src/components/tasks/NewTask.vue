@@ -1,13 +1,17 @@
 <template>
     <div class="relative">
+
         <input type="text" 
             class="form-control form-control-lg padding-right-lg"
             placeholder="+ Add new task. Press enter to save." 
             @keydown.enter="addNewTask"
         />
+
     </div>
 </template>
+
 <script setup>
+
 import { reactive } from 'vue';
 import { useTaskStore } from "../../stores/task";
 
@@ -26,4 +30,5 @@ const addNewTask = async(event) => {
         await handleAddedTask(newTask)
     }
 }
+
 </script>

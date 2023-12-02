@@ -1,38 +1,39 @@
 <template>
 <li class="list-group-item py-3">
-                                    <div class="d-flex justify-content-start align-items-center">
-                                    <input class="form-check-input mt-0" 
-                                    type="checkbox" 
-                                    :class="completedClass" 
-                                    :checked="task.is_completed" 
-                                    @change="markTaskAsCompleted"
-                                    />
-                                    
-                                    <div class="ms-2 flex-grow-1" 
-                                    :class="completedClass" 
-                                    title="Double click the text to edit or remove"
-                                    @dblclick="isEdit = true"
-                                    >
-                
-                                    <div class="relative" v-if="isEdit">
-                                    <input class="editable-task" 
-                                    type="text" 
-                                    v-focus 
-                                    @keyup.esc="undo"
-                                    @keyup.enter="updateTask"
-                                    v-model="editingTask"
-                                    />
-                                    </div>
-              
-              
-                                    <span v-else>{{ task.name }}</span>
-                                    </div>
-                                    <div class="task-date">{{task.created_at}}</div>
-                                    </div>
-                                    <TaskActions 
-                                    @edit="isEdit = true" v-show="!isEdit" 
-                                    @remove="removeTask"
-                                    />
+
+                        <div class="d-flex justify-content-start align-items-center">
+                        <input class="form-check-input mt-0" 
+                        type="checkbox" 
+                        :class="completedClass" 
+                        :checked="task.is_completed" 
+                        @change="markTaskAsCompleted"
+                        />
+                        
+                        <div class="ms-2 flex-grow-1" 
+                        :class="completedClass" 
+                        title="Double click the text to edit or remove"
+                        @dblclick="isEdit = true"
+                        >
+    
+                        <div class="relative" v-if="isEdit">
+                        <input class="editable-task" 
+                        type="text" 
+                        v-focus 
+                        @keyup.esc="undo"
+                        @keyup.enter="updateTask"
+                        v-model="editingTask"
+                        />
+                        </div>
+
+                        <span v-else>{{ task.name }}</span>
+                        </div>
+                        <div class="task-date">{{task.created_at}}</div>
+                        </div>
+                        <TaskActions 
+                        @edit="isEdit = true" v-show="!isEdit" 
+                        @remove="removeTask"
+                        />
+                        
 </li>
 
 
