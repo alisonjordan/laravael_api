@@ -3,10 +3,10 @@
 
     <div class="container py-2">
 
-            <a href="/" class="navbar-brand">
+    <router-link to="/" class="navbar-brand">
             <span>ToDo</span>
             <strong>List</strong>
-            </a>
+        </router-link>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -18,11 +18,11 @@
             <ul class="navbar-nav">
 
                 <li class="nav-item">
-                <a href="/tasks" class="nav-link">Tasks</a>
+                <router-link :to="{ name: 'tasks' }" class="nav-link">Tasks</router-link>
                 </li>
 
                 <li class="nav-item">
-                <a href="/summaries" class="nav-link">Summary</a>
+                <router-link :to="{ name: 'tasks' }" class="nav-link">Summary</router-link>
                 </li>
 
             </ul>
@@ -30,15 +30,15 @@
             <ul class="navbar-nav ms-auto">
                 
                 <li class="nav-item">
-                <a href="/login" class="btn btn-outline-secondary ms-2">Login</a>
+                <router-link  :to="{ name: 'login' }" class="btn btn-outline-secondary ms-2">Login</router-link>
                 </li>
 
                 <li class="nav-item">
-                <a href="/register" class="btn btn-danger ms-2">Register</a>
+                <router-link :to="{ name: 'register' }" class="btn btn-danger ms-2">Register</router-link>
                 </li>
 
                 <li class="nav-item">
-                <a href="#" class="btn btn-outline-secondary ms-2">Logout</a>
+                <router-link to="#" class="btn btn-outline-secondary ms-2">Logout</router-link>
                 </li>
 
             </ul>
